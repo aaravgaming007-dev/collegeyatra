@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>College यात्रा | Memories of Abhishek Kumar</title>
+  <meta name="title" content="College यात्रा | Memories of Abhishek Kumar">
+  <meta name="description" content="Digital photo gallery and memories archive of Abhishek Kumar. Simple, curated college photos.">
+  <meta name="keywords" content="College यात्रा, Abhishek Kumar, College Memories, Photo Archives, Campus Gallery">
+  <meta name="author" content="Abhishek Kumar">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://collegeyatra.abhishekkumar.memories/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://collegeyatra.abhishekkumar.memories/">
+  <meta property="og:title" content="College यात्रा | Memories of Abhishek Kumar">
+  <meta property="og:description" content="Explore the college photo archives of Abhishek Kumar.">
+  <meta property="og:image" content="pic1.jpeg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="College यात्रा | Memories of Abhishek Kumar">
+  <meta name="twitter:description" content="Explore the college photo archives of Abhishek Kumar.">
+  <meta name="twitter:image" content="pic1.jpeg">
+
+  <!-- Schema.org JSON-LD for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": "College यात्रा - Memories of Abhishek Kumar",
+    "description": "Curated college photo gallery for Abhishek Kumar.",
+    "author": {
+      "@type": "Person",
+      "name": "Abhishek Kumar"
+    },
+    "inLanguage": "en"
+  }
+  </script>
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+            mono: ['Inter', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Styles with Scroll Animations -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-[#090d16] text-slate-100 font-sans antialiased min-h-screen pb-16 selection:bg-amber-500 selection:text-slate-950 overflow-x-hidden">
+
+  <!-- HEAVY AMBIENT BACKGROUND BLOBS -->
+  <div class="ambient-blob blob-1"></div>
+  <div class="ambient-blob blob-2"></div>
+  <div class="ambient-blob blob-3"></div>
+
+  <!-- Mobile Sticky Header with Custom Animated Logo -->
+  <header class="sticky top-0 z-40 bg-[#090d16]/90 backdrop-blur-md border-b border-slate-800/80 px-4 py-3">
+    <div class="max-w-md mx-auto flex items-center justify-between">
+      
+      <!-- Custom SVG Logo & Title with Hindi यात्रा -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <!-- Animated Logo Container -->
+        <div class="logo-icon-box w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center p-1.5 shadow-sm group-hover:border-amber-500/50 transition-all duration-300">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="32" height="32" rx="8" fill="#1E293B"/>
+            <path d="M9 13C9 11.8954 9.89543 11 11 11H13.1716C13.702 11 14.2107 10.7893 14.5858 10.4142L15.4142 9.58579C15.7893 9.21071 16.298 9 16.8284 9H19C20.1046 9 21 9.89543 21 11" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="16" cy="18" r="4.5" stroke="#F59E0B" stroke-width="2"/>
+            <path d="M8 23L12.5 18.5L16.5 22.5L24 15" stroke="#F59E0B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="font-bold text-base tracking-wide text-slate-100">
+              College <span class="text-amber-400 font-extrabold">यात्रा</span>
+            </h1>
+            <span class="px-1.5 py-0.2 rounded bg-amber-500/10 text-amber-400 text-[10px] font-mono font-semibold border border-amber-500/20">
+              Archives
+            </span>
+          </div>
+          <p class="text-[11px] text-slate-400 font-medium">
+            Memories of Abhishek Kumar
+          </p>
+        </div>
+      </a>
+
+      <!-- Right Controls: Lock Icon -->
+      <div class="flex items-center gap-2">
+        <button id="admin-lock-btn" title="Admin Dashboard" class="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 active:scale-95 transition-all">
+          <i id="admin-lock-icon" data-lucide="lock" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main class="max-w-md mx-auto px-4 pt-5 space-y-6 relative z-10">
+
+    <!-- HERO PROFILE HEADER (Reveal on Scroll) -->
+    <section id="hero" class="reveal-on-scroll rounded-2xl bg-slate-900/60 border border-slate-800/80 p-4 space-y-4 shadow-xl backdrop-blur-md">
+      <div class="flex items-center gap-3.5">
+        <!-- Clean Profile Photo -->
+        <img src="pic1.jpeg" alt="Abhishek Kumar" class="w-14 h-14 rounded-xl object-cover border border-slate-700 shadow-md">
+        
+        <div>
+          <h2 class="text-base font-bold text-slate-100 tracking-tight">
+            Abhishek Kumar
+          </h2>
+          <p class="text-xs text-slate-400 font-medium mt-0.5">
+            College Photo Collection & Archives
+          </p>
+          <div class="inline-flex items-center gap-1.5 text-[10px] font-mono text-amber-400 mt-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>College <span class="font-bold">यात्रा</span> Album</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Bar -->
+      <div class="grid grid-cols-3 gap-2 pt-3 border-t border-slate-800/80 text-center font-mono">
+        <div class="bg-slate-950/60 p-2 rounded-xl border border-slate-800/60 transition-transform hover:scale-105">
+          <div class="text-sm font-bold text-amber-400" id="total-photos-stat">7</div>
+          <div class="text-[10px] text-slate-400 uppercase tracking-wider mt-0.5">Photos</div>
+        </div>
+        <div class="bg-slate-950/60 p-2 rounded-xl border border-slate-800/60 transition-transform hover:scale-105">
+          <div class="text-sm font-bold text-slate-200">Abhishek</div>
+          <div class="text-[10px] text-slate-400 uppercase tracking-wider mt-0.5">Album</div>
+        </div>
+        <div class="bg-slate-950/60 p-2 rounded-xl border border-slate-800/60 transition-transform hover:scale-105">
+          <div class="text-sm font-bold text-slate-200">Synced</div>
+          <div class="text-[10px] text-slate-400 uppercase tracking-wider mt-0.5">Status</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEARCH & CATEGORY FILTER BAR (Reveal on Scroll) -->
+    <section id="gallery-controls" class="reveal-on-scroll space-y-3">
+      <div class="flex items-center justify-between">
+        <h3 class="font-bold text-xs uppercase tracking-wider text-slate-400 font-mono flex items-center gap-1.5">
+          <i data-lucide="layers" class="w-3.5 h-3.5 text-amber-400"></i>
+          Photo Gallery
+        </h3>
+
+        <!-- View Mode Toggle Buttons -->
+        <div class="flex items-center bg-slate-900 p-0.5 rounded-lg border border-slate-800">
+          <button id="view-grid-btn" title="Grid Layout" class="px-2 py-1 rounded bg-slate-800 text-amber-400 text-xs font-semibold active:scale-95 transition-all">
+            <i data-lucide="grid" class="w-3.5 h-3.5"></i>
+          </button>
+          <button id="view-list-btn" title="List Layout" class="px-2 py-1 rounded text-slate-400 hover:text-slate-200 text-xs font-semibold active:scale-95 transition-all">
+            <i data-lucide="list" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Clean Search Field -->
+      <div class="relative">
+        <i data-lucide="search" class="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2"></i>
+        <input type="text" id="search-input" placeholder="Search by title, location, tag..." class="w-full pl-9 pr-8 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-500/50 transition-all">
+        <button id="clear-search-btn" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300">
+          <i data-lucide="x" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
+
+      <!-- Category Tabs Strip -->
+      <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 font-mono text-[11px]">
+        <button data-tag="all" class="tag-btn active shrink-0 px-3 py-1 rounded-lg font-semibold bg-slate-100 text-slate-950 transition-all active:scale-95">
+          All
+        </button>
+        <button data-tag="Events" class="tag-btn shrink-0 px-3 py-1 rounded-lg font-medium bg-slate-900 border border-slate-800 text-slate-300 hover:bg-slate-800 transition-all active:scale-95">
+          Events
+        </button>
+        <button data-tag="Campus" class="tag-btn shrink-0 px-3 py-1 rounded-lg font-medium bg-slate-900 border border-slate-800 text-slate-300 hover:bg-slate-800 transition-all active:scale-95">
+          Campus
+        </button>
+        <button data-tag="Friends" class="tag-btn shrink-0 px-3 py-1 rounded-lg font-medium bg-slate-900 border border-slate-800 text-slate-300 hover:bg-slate-800 transition-all active:scale-95">
+          Friends
+        </button>
+        <button data-tag="Academics" class="tag-btn shrink-0 px-3 py-1 rounded-lg font-medium bg-slate-900 border border-slate-800 text-slate-300 hover:bg-slate-800 transition-all active:scale-95">
+          Academics
+        </button>
+      </div>
+    </section>
+
+    <!-- GALLERY GRID CONTAINER -->
+    <section id="gallery-container" class="grid grid-cols-1 gap-4 transition-all duration-300">
+      <!-- Dynamic Memory Cards rendered with reveal-on-scroll classes -->
+    </section>
+
+    <!-- EMPTY STATE -->
+    <div id="empty-state" class="hidden text-center py-12 px-4 rounded-2xl bg-slate-900/40 border border-dashed border-slate-800 space-y-2">
+      <i data-lucide="image-off" class="w-8 h-8 text-slate-600 mx-auto"></i>
+      <div class="text-xs font-medium text-slate-400">No photos match your filter.</div>
+      <button id="reset-filters-btn" class="px-3 py-1 rounded-lg bg-slate-800 text-amber-400 text-xs font-mono hover:bg-slate-700 active:scale-95">
+        Reset Filter
+      </button>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mt-12 border-t border-slate-800/80 py-6 px-4 text-center text-xs text-slate-500 font-mono relative z-10">
+    <p>College <span class="text-amber-400 font-bold">यात्रा</span> • Abhishek Kumar</p>
+    <p class="text-[10px] text-slate-600 mt-1">Local Storage Gallery Active</p>
+  </footer>
+
+  <!-- ========================================== -->
+  <!-- LIGHTBOX MODAL                             -->
+  <!-- ========================================== -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 hidden flex-col bg-slate-950/95 backdrop-blur-xl">
+    <!-- Top Bar -->
+    <div class="flex items-center justify-between p-4 z-10">
+      <div class="flex items-center gap-2">
+        <span id="lightbox-tag" class="px-2 py-0.5 rounded bg-slate-800 text-amber-400 text-[10px] font-mono uppercase font-bold">
+          Events
+        </span>
+      </div>
+      <button id="lightbox-close-btn" class="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white active:scale-95">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+    </div>
+
+    <!-- Center Expanded Photo -->
+    <div class="relative flex-1 flex items-center justify-center p-3 overflow-hidden">
+      <button id="lightbox-prev-btn" class="absolute left-2 z-10 p-2 rounded-lg bg-slate-900/80 border border-slate-800 text-slate-200 active:scale-95">
+        <i data-lucide="chevron-left" class="w-5 h-5"></i>
+      </button>
+
+      <img id="lightbox-img" src="" alt="Memory preview" class="modal-pop max-h-[68vh] max-w-full object-contain rounded-xl shadow-2xl">
+
+      <button id="lightbox-next-btn" class="absolute right-2 z-10 p-2 rounded-lg bg-slate-900/80 border border-slate-800 text-slate-200 active:scale-95">
+        <i data-lucide="chevron-right" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Bottom Caption Bar -->
+    <div class="p-4 bg-slate-900 border-t border-slate-800 max-w-md mx-auto w-full space-y-1">
+      <div class="flex items-center justify-between">
+        <h3 id="lightbox-title" class="font-bold text-sm text-slate-100">Title</h3>
+        <span id="lightbox-location" class="text-xs font-mono text-slate-400">Location</span>
+      </div>
+      <p id="lightbox-caption" class="text-xs text-slate-300 leading-relaxed max-h-20 overflow-y-auto pr-1">
+        Caption description...
+      </p>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- ADMIN AUTH MODAL                           -->
+  <!-- ========================================== -->
+  <div id="admin-auth-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+    <div id="admin-auth-card" class="modal-pop w-full max-w-sm rounded-2xl bg-slate-900 border border-slate-800 p-5 space-y-4 relative">
+      <button id="admin-auth-close-btn" class="absolute top-3.5 right-3.5 text-slate-400 hover:text-white p-1">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <div class="text-center space-y-1">
+        <div class="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 text-amber-400 flex items-center justify-center mx-auto mb-1">
+          <i data-lucide="shield-check" class="w-5 h-5"></i>
+        </div>
+        <h3 class="font-bold text-base text-slate-100">Admin Login</h3>
+        <p class="text-xs text-slate-400">Enter password to manage College <span class="text-amber-400">यात्रा</span> photos.</p>
+      </div>
+
+      <form id="admin-auth-form" class="space-y-3">
+        <div>
+          <label for="admin-password-input" class="block text-[11px] font-mono text-slate-300 mb-1">Password</label>
+          <div class="relative">
+            <input type="password" id="admin-password-input" placeholder="Enter password..." required class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-100 focus:outline-none focus:border-slate-700">
+            <button type="button" id="toggle-password-btn" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300">
+              <i data-lucide="eye" class="w-4 h-4"></i>
+            </button>
+          </div>
+          <p id="admin-auth-error" class="hidden text-[11px] text-rose-400 font-mono mt-1">Incorrect password. Try again.</p>
+        </div>
+
+        <button type="submit" class="w-full py-2 px-4 rounded-xl bg-slate-100 text-slate-950 font-bold text-xs hover:bg-white transition-all active:scale-95">
+          Unlock Dashboard
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- ADMIN DASHBOARD MODAL                      -->
+  <!-- ========================================== -->
+  <div id="admin-dashboard-modal" class="fixed inset-0 z-50 hidden flex flex-col bg-slate-950/95 backdrop-blur-xl overflow-y-auto">
+    <!-- Header -->
+    <div class="sticky top-0 z-10 bg-slate-900 border-b border-slate-800 px-4 py-3">
+      <div class="max-w-md mx-auto flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-mono text-xs font-bold">
+            ✓
+          </div>
+          <span class="font-bold text-sm text-slate-100">Admin Dashboard</span>
+        </div>
+        
+        <div class="flex items-center gap-2">
+          <button id="admin-logout-btn" class="px-2 py-1 rounded bg-rose-500/10 text-rose-400 text-xs font-mono hover:bg-rose-500/20">
+            Logout
+          </button>
+          <button id="admin-dashboard-close-btn" class="p-1 rounded bg-slate-800 text-slate-300 hover:text-white">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="max-w-md mx-auto w-full p-4 space-y-6 flex-1">
+      
+      <!-- ADD FORM -->
+      <section class="modal-pop bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-3">
+        <h4 class="font-bold text-xs uppercase tracking-wider font-mono text-slate-300" id="form-heading">Add Photo</h4>
+
+        <form id="add-memory-form" class="space-y-3">
+          <input type="hidden" id="edit-memory-id" value="">
+
+          <!-- File / URL -->
+          <div class="space-y-2">
+            <label class="block text-[11px] font-mono text-slate-400">Select Image File</label>
+            <div class="relative border border-dashed border-slate-800 hover:border-slate-600 rounded-xl p-3 text-center bg-slate-950">
+              <input type="file" id="memory-file-input" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+              <span class="text-xs font-medium text-slate-300" id="file-label-text">Choose file from device</span>
+            </div>
+            <input type="url" id="memory-url-input" placeholder="Or paste image URL..." class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-100 focus:outline-none">
+          </div>
+
+          <!-- Preview -->
+          <div id="image-preview-container" class="hidden rounded-xl overflow-hidden border border-slate-800 max-h-36">
+            <img id="image-preview" src="" alt="Preview" class="w-full h-36 object-cover">
+          </div>
+
+          <!-- Title -->
+          <div>
+            <label for="memory-title-input" class="block text-[11px] font-mono text-slate-400 mb-1">Title</label>
+            <input type="text" id="memory-title-input" required placeholder="e.g., Campus Memory" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-100 focus:outline-none">
+          </div>
+
+          <!-- Location & Tag Grid -->
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label for="memory-location-input" class="block text-[11px] font-mono text-slate-400 mb-1">Location</label>
+              <input type="text" id="memory-location-input" required placeholder="e.g., Main Auditorium" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-100 focus:outline-none">
+            </div>
+
+            <div>
+              <label for="memory-tag-select" class="block text-[11px] font-mono text-slate-400 mb-1">Category</label>
+              <select id="memory-tag-select" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-100 focus:outline-none">
+                <option value="Events">Events</option>
+                <option value="Campus">Campus</option>
+                <option value="Friends">Friends</option>
+                <option value="Academics">Academics</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Caption -->
+          <div>
+            <label for="memory-caption-input" class="block text-[11px] font-mono text-slate-400 mb-1">Description</label>
+            <textarea id="memory-caption-input" rows="2" required placeholder="Brief memory note..." class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-100 focus:outline-none"></textarea>
+          </div>
+
+          <!-- Submit Buttons -->
+          <div class="flex gap-2">
+            <button type="submit" id="save-memory-btn" class="flex-1 py-2 px-4 rounded-xl bg-slate-100 text-slate-950 font-bold text-xs hover:bg-white transition-all active:scale-95">
+              Save Photo
+            </button>
+            <button type="button" id="cancel-edit-btn" class="hidden py-2 px-4 rounded-xl bg-slate-800 text-slate-300 text-xs hover:bg-slate-700">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- MANAGE LIST -->
+      <section class="space-y-2">
+        <h4 class="font-bold text-xs uppercase tracking-wider font-mono text-slate-400">
+          Manage Photos (<span id="admin-memory-count">0</span>)
+        </h4>
+        <div id="admin-memories-list" class="space-y-2">
+          <!-- Dynamic List -->
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- TOAST CONTAINER -->
+  <div id="toast-container" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 space-y-2 pointer-events-none w-full max-w-xs px-4"></div>
+
+  <!-- App Script with Scroll Observer -->
+  <script src="app.js"></script>
+</body>
+</html>
