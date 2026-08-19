@@ -1,0 +1,196 @@
+/* Professional Editorial & Heavy Scroll Animations for College यात्रा */
+
+/* Hide scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Touch Optimizations */
+button, a, input, select, textarea {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =================================================== */
+/* HEAVY SCROLL REVEAL ANIMATIONS                      */
+/* =================================================== */
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(35px) scale(0.95);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Stagger Delays for Grid Items */
+.stagger-1 { transition-delay: 0.05s; }
+.stagger-2 { transition-delay: 0.1s; }
+.stagger-3 { transition-delay: 0.15s; }
+.stagger-4 { transition-delay: 0.2s; }
+.stagger-5 { transition-delay: 0.25s; }
+
+/* =================================================== */
+/* DYNAMIC BACKGROUND AMBIENT BLOBS & PARALLAX GLOW    */
+/* =================================================== */
+
+.ambient-blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(110px);
+  pointer-events: none;
+  z-index: 0;
+  animation: floatBlob 12s ease-in-out infinite alternate;
+}
+
+.blob-1 {
+  top: -5%;
+  left: 20%;
+  width: 320px;
+  height: 320px;
+  background: rgba(245, 158, 11, 0.12);
+}
+
+.blob-2 {
+  bottom: 10%;
+  right: -10%;
+  width: 280px;
+  height: 280px;
+  background: rgba(99, 102, 241, 0.12);
+  animation-delay: -4s;
+}
+
+.blob-3 {
+  top: 40%;
+  left: -10%;
+  width: 260px;
+  height: 260px;
+  background: rgba(244, 63, 94, 0.1);
+  animation-delay: -8s;
+}
+
+@keyframes floatBlob {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(25px, -30px) scale(1.1); }
+  100% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+/* =================================================== */
+/* CARD HOVER & SHIMMER EFFECTS                        */
+/* =================================================== */
+
+.editorial-card {
+  position: relative;
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.4s ease, 
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+.editorial-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transition: left 0.7s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.editorial-card:hover::before {
+  left: 150%;
+}
+
+.editorial-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  border-color: rgba(245, 158, 11, 0.35);
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.6), 
+              0 10px 20px -5px rgba(245, 158, 11, 0.15);
+}
+
+.editorial-card img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-card:hover img {
+  transform: scale(1.06);
+}
+
+/* =================================================== */
+/* LOGO SHIMMER & BUTTON ANIMATIONS                    */
+/* =================================================== */
+
+.logo-icon-box {
+  animation: logoPulse 4s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+  50% { box-shadow: 0 0 15px 2px rgba(245, 158, 11, 0.3); }
+}
+
+/* Modal Popup Scale Animation */
+.modal-pop {
+  animation: modalScale 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalScale {
+  0% { opacity: 0; transform: scale(0.92) translateY(10px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Error Shake Effect */
+.shake-error {
+  animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+  border-color: #ef4444 !important;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-2px, 0, 0); }
+  20%, 80% { transform: translate3d(3px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-5px, 0, 0); }
+  40%, 60% { transform: translate3d(5px, 0, 0); }
+}
+
+/* Heart Burst Animation */
+.heart-btn.liked i {
+  fill: #f43f5e;
+  color: #f43f5e;
+  animation: heartPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes heartPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
