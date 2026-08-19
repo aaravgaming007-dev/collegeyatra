@@ -33,7 +33,7 @@ const DEFAULT_IMAGES = [
   { id: 'default-1', src: 'pic1.jpeg',  caption: 'Celebration on the stairs — Convocation Day', isDefault: true },
   { id: 'default-2', src: 'pic2.jpeg',  caption: 'Throwing caps — a tradition of triumph',       isDefault: true },
   { id: 'default-3', src: 'pic3.jpeg',  caption: 'Outside Patna University — pride & joy',       isDefault: true },
-  { id: 'default-4', src: 'pic 4.jpeg', caption: 'Friends forever — Convocation selfie',         isDefault: true },
+  { id: 'default-4', src: 'pic4.jpeg', caption: 'Friends forever — Convocation selfie',         isDefault: true },
   { id: 'default-5', src: 'pic5.jpeg',  caption: 'Degrees in hand — the moment we dreamed of',  isDefault: true },
   { id: 'default-6', src: 'pic6.jpeg',  caption: 'The whole squad — steps of glory',            isDefault: true },
   { id: 'default-7', src: 'pic7.jpeg',  caption: 'Certificate in hand — a proud moment',        isDefault: true },
