@@ -1,5 +1,9 @@
-const API_BASE = window.location.origin.startsWith('file://') ? 'http://localhost:3000' : '';
+// ── CONFIGURATION ──
+// If you host your frontend and backend on different domains (e.g. Netlify for frontend, Render for backend),
+// paste your backend URL here (e.g. 'https://collegeyatra-backend.onrender.com'). Otherwise, leave it empty.
+const BACKEND_URL = '';
 
+const API_BASE = BACKEND_URL || (window.location.origin.startsWith('file://') ? 'http://localhost:3000' : '');
 /* ── TOAST ── */
 const toastEl = document.getElementById('toast');
 let toastTimer;
