@@ -17,11 +17,12 @@ const path           = require('path');
 const crypto         = require('crypto');
 
 // ── Validate environment ──────────────────
-if (!process.env.ADMIN_USERNAME_HASH || !process.env.ADMIN_PASSWORD_HASH) {
-  console.error('\n  ❌  Missing credentials in .env!');
-  console.error('  Run: node setup.js\n');
-  process.exit(1);
+const IS_ADMIN_CONFIGURED = !!(process.env.ADMIN_USERNAME_HASH && process.env.ADMIN_PASSWORD_HASH);
+if (!IS_ADMIN_CONFIGURED) {
+  console.warn('\n  ⚠️  WARNING: Admin credentials are not configured in environment variables!');
+  console.warn('  Admin panel features will be unavailable until ADMIN_USERNAME_HASH and ADMIN_PASSWORD_HASH are set.\n');
 }
+
 
 const app         = express();
 const PORT        = parseInt(process.env.PORT) || 3000;
@@ -129,6 +130,10 @@ function requireAdmin(req, res, next) {
 // Body: { username, password }
 // Compares against bcrypt hashes in .env — credentials NEVER sent to client
 app.post('/api/auth/login', async (req, res) => {
+  if (!IS_ADMIN_CONFIGURED) {
+    return res.status(503).json({ error: 'Admin panel is disabled: credentials are not configured on the server. Please set ADMIN_USERNAME_HASH and ADMIN_PASSWORD_HASH in environment variables.' });
+  }
+
   const { username = '', password = '' } = req.body;
 
   if (!username || !password) {
@@ -159,7 +164,10 @@ app.post('/api/auth/login', async (req, res) => {
 
 // GET /api/auth/check — used by admin.html to detect existing session
 app.get('/api/auth/check', (req, res) => {
-  res.json({ authenticated: req.session?.isAdmin === true });
+  res.json({ 
+    authenticated: req.session?.isAdmin === true,
+    configured: IS_ADMIN_CONFIGURED
+  });
 });
 
 // POST /api/auth/logout

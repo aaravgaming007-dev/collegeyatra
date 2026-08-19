@@ -27,11 +27,17 @@ async function checkSession() {
   try {
     const res  = await fetch(API_BASE + '/api/auth/check');
     const data = await res.json();
+    
+    if (data.hasOwnProperty('configured') && !data.configured) {
+      loginErr.innerHTML = '⚠️ <strong>Server configuration missing:</strong><br/>Please set ADMIN_USERNAME_HASH and ADMIN_PASSWORD_HASH in your Render dashboard settings.';
+      loginErr.style.color = 'var(--c-accent)';
+      loginErr.classList.add('show');
+    }
+    
     if (data.authenticated) {
       showAdminPanel();
       refreshAll();
     }
-    // else: stay on login page (already shown by default)
   } catch (e) {
     // server unreachable — stay on login page
   }
