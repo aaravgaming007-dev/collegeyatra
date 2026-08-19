@@ -1,8 +1,8 @@
 // ─────────────────────────────────────────
 //  CollegeYatra — Main App JS  (API-backed)
 // ─────────────────────────────────────────
-
-const API = '/api/images';
+const API_BASE = window.location.origin.startsWith('file://') ? 'http://localhost:3000' : '';
+const API = API_BASE + '/api/images';
 
 /* ── LOADER ── */
 window.addEventListener('load', () => {

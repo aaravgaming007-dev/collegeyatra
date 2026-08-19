@@ -1,9 +1,4 @@
-// ─────────────────────────────────────────
-//  CollegeYatra — Admin Panel JS
-//  ✅  No credentials stored here
-//  ✅  Auth handled entirely by server sessions
-//  ✅  Credentials compared via bcrypt on server
-// ─────────────────────────────────────────
+const API_BASE = window.location.origin.startsWith('file://') ? 'http://localhost:3000' : '';
 
 /* ── TOAST ── */
 const toastEl = document.getElementById('toast');
@@ -26,7 +21,7 @@ const logoutBtn = document.getElementById('logoutBtn');
 /* ── Check existing session on load ── */
 async function checkSession() {
   try {
-    const res  = await fetch('/api/auth/check');
+    const res  = await fetch(API_BASE + '/api/auth/check');
     const data = await res.json();
     if (data.authenticated) {
       showAdminPanel();
@@ -49,7 +44,7 @@ loginForm.addEventListener('submit', async e => {
   const password = document.getElementById('lpassword').value;
 
   try {
-    const res  = await fetch('/api/auth/login', {
+    const res  = await fetch(API_BASE + '/api/auth/login', {
       method:      'POST',
       headers:     { 'Content-Type': 'application/json' },
       credentials: 'same-origin',
@@ -79,7 +74,7 @@ loginForm.addEventListener('submit', async e => {
 
 /* ── Logout ── */
 logoutBtn.addEventListener('click', async () => {
-  await fetch('/api/auth/logout', { method: 'POST', credentials: 'same-origin' });
+  await fetch(API_BASE + '/api/auth/logout', { method: 'POST', credentials: 'same-origin' });
   adminPage.classList.remove('active');
   loginPage.style.display = '';
 });
@@ -111,7 +106,7 @@ window.showSection = showSection;
 /* ── Dashboard stats ── */
 async function updateDashStats() {
   try {
-    const res  = await fetch('/api/images');
+    const res  = await fetch(API_BASE + '/api/images');
     const imgs = await res.json();
     const uploaded = imgs.filter(i => !i.isDefault).length;
     document.getElementById('statTotal').textContent    = imgs.length;
@@ -171,7 +166,7 @@ uploadBtn.addEventListener('click', async () => {
     form.append('image',   pendingFile);
     form.append('caption', caption);
 
-    const res = await fetch('/api/images', {
+    const res = await fetch(API_BASE + '/api/images', {
       method:      'POST',
       credentials: 'same-origin',
       body:        form,
@@ -209,7 +204,7 @@ async function buildManageGrid() {
 
   let imgs;
   try {
-    const res = await fetch('/api/images');
+    const res = await fetch(API_BASE + '/api/images');
     imgs = await res.json();
   } catch (e) {
     grid.innerHTML = '<p style="color:var(--c-danger);grid-column:1/-1;padding:30px 0;text-align:center;">Cannot reach server.</p>';
@@ -252,7 +247,7 @@ async function deleteImage(id) {
   if (!confirm(`Delete "${caption}"?`)) return;
 
   try {
-    const res = await fetch(`/api/images/${id}`, {
+    const res = await fetch(API_BASE + `/api/images/${id}`, {
       method:      'DELETE',
       credentials: 'same-origin',
     });
@@ -276,7 +271,7 @@ async function deleteImage(id) {
 window.resetToDefaults = async function () {
   if (!confirm('Remove all uploaded images and restore the original 7 photos?')) return;
   try {
-    const res = await fetch('/api/images/reset', {
+    const res = await fetch(API_BASE + '/api/images/reset', {
       method:      'DELETE',
       credentials: 'same-origin',
     });

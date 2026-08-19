@@ -78,7 +78,20 @@ const upload = multer({
 });
 
 // ── Middleware ────────────────────────────
-app.use(cors({ origin: false }));
+// Trust proxy (required for hosting services like Render, Heroku, Vercel, Railway)
+app.set('trust proxy', 1);
+
+// Configure dynamic CORS with credentials support to allow decoupled deployments (e.g. Netlify/Vercel frontend + Render backend)
+app.use(cors({
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps, curl, or same-origin)
+    if (!origin) return callback(null, true);
+    // Allow all origins in development and production
+    callback(null, true);
+  },
+  credentials: true
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -89,8 +102,9 @@ app.use(session({
   name:              'cy_sid',
   cookie: {
     httpOnly: true,      // JS cannot read this cookie
-    sameSite: 'strict',
-    secure:   false,     // set true if running HTTPS
+    // Use sameSite: 'none' and secure: true in production to support decoupled cross-site domains (e.g. Netlify -> Render)
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+    secure:   process.env.NODE_ENV === 'production' ? true : 'auto',
     maxAge:   8 * 60 * 60 * 1000,  // 8 hours
   },
 }));
