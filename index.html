@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CollegeYatra — A Journey to Remember</title>
+  <meta name="description" content="CollegeYatra — Relive the beautiful college journey, memories, milestones and moments captured forever." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── LOADER ── -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <span class="loader-text">CollegeYatra</span>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- ── CURSOR ── -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ── NAV ── -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-brand">CollegeYatra</a>
+      <ul class="nav-links">
+        <li><a href="#about">Story</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#memories">Memories</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <!-- mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about" class="mob-link">Story</a>
+      <a href="#gallery" class="mob-link">Gallery</a>
+      <a href="#memories" class="mob-link">Memories</a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-slides">
+      <div class="hero-slide active" style="background-image:url('pic1.jpeg')"></div>
+      <div class="hero-slide" style="background-image:url('pic2.jpeg')"></div>
+      <div class="hero-slide" style="background-image:url('pic5.jpeg')"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal">Patna University · Convocation 2026</p>
+      <h1 class="hero-title reveal">
+        <span class="line">A Yatra</span>
+        <span class="line italic">Worth Every</span>
+        <span class="line">Moment.</span>
+      </h1>
+      <p class="hero-sub reveal">Four years of dreams, friendships, and milestones — captured forever.</p>
+      <a href="#gallery" class="btn-primary reveal">View the Journey</a>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+    <div class="hero-dots">
+      <span class="dot active" data-idx="0"></span>
+      <span class="dot" data-idx="1"></span>
+      <span class="dot" data-idx="2"></span>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section class="about" id="about">
+    <div class="about-inner container">
+      <div class="about-text">
+        <p class="section-label reveal">Our Story</p>
+        <h2 class="section-title reveal">From First Day<br/>to Final <em>Milestone</em></h2>
+        <p class="about-body reveal">College is more than lectures and exams — it's the late-night conversations, the laughter on staircases, the feeling when you finally hold that certificate in your hands. <strong>CollegeYatra</strong> is a tribute to that irreplaceable journey.</p>
+        <div class="stats reveal">
+          <div class="stat-item">
+            <span class="stat-num" data-target="4">0</span>
+            <span class="stat-label">Years</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="100">0</span>
+            <span class="stat-label">Memories</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="1">0</span>
+            <span class="stat-label">Lifetime</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-img-grid reveal">
+        <div class="grid-img tall">
+          <img src="pic3.jpeg" alt="Graduation Day" loading="lazy" />
+        </div>
+        <div class="grid-img">
+          <img src="pic 4.jpeg" alt="Friends at Convocation" loading="lazy" />
+        </div>
+        <div class="grid-img">
+          <img src="pic7.jpeg" alt="Receiving Certificate" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MARQUEE ── -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>Convocation</span><span>·</span>
+      <span>Memories</span><span>·</span>
+      <span>Friendship</span><span>·</span>
+      <span>Patna University</span><span>·</span>
+      <span>Degrees</span><span>·</span>
+      <span>Dreams</span><span>·</span>
+      <span>Convocation</span><span>·</span>
+      <span>Memories</span><span>·</span>
+      <span>Friendship</span><span>·</span>
+      <span>Patna University</span><span>·</span>
+      <span>Degrees</span><span>·</span>
+      <span>Dreams</span><span>·</span>
+    </div>
+  </div>
+
+  <!-- ── GALLERY ── -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <p class="section-label reveal">Gallery</p>
+      <h2 class="section-title reveal">Frames of <em>Joy</em></h2>
+      <p class="gallery-sub reveal">Every photograph holds a thousand words. Here are ours.</p>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- Populated by JS from localStorage + defaults -->
+    </div>
+
+    <div class="gallery-lightbox" id="lightbox">
+      <button class="lb-close" id="lbClose">✕</button>
+      <button class="lb-arrow lb-prev" id="lbPrev">&#8592;</button>
+      <button class="lb-arrow lb-next" id="lbNext">&#8594;</button>
+      <img class="lb-img" id="lbImg" src="" alt="Gallery image" />
+      <p class="lb-caption" id="lbCaption"></p>
+    </div>
+  </section>
+
+  <!-- ── MEMORIES TIMELINE ── -->
+  <section class="memories" id="memories">
+    <div class="container">
+      <p class="section-label reveal">Timeline</p>
+      <h2 class="section-title reveal">Milestones of the <em>Yatra</em></h2>
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-year">Day 1</span>
+            <h3>The Beginning</h3>
+            <p>Walking through the gates for the first time, uncertain yet full of hope. Patna University welcomed us with open arms.</p>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-year">Year 2</span>
+            <h3>Finding Our Tribe</h3>
+            <p>Late-night study sessions that turned into lifelong friendships. The bonds forged here are unbreakable.</p>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-year">Year 3</span>
+            <h3>Growth & Discovery</h3>
+            <p>Debates, seminars, cultural fests — every event was a chapter that shaped who we became.</p>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-year">2026</span>
+            <h3>Convocation Day</h3>
+            <p>Yellow turbans, white kurtas, and tears of joy. We stood together as graduates, certificate in hand, ready for the world.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FEATURED PHOTO ── -->
+  <section class="featured-photo">
+    <div class="featured-img">
+      <img src="pic6.jpeg" alt="Graduation group on stairs" loading="lazy" />
+    </div>
+    <div class="featured-overlay">
+      <blockquote class="quote reveal">
+        "The tassel was worth the hassle."
+        <cite>— Class of 2026</cite>
+      </blockquote>
+    </div>
+  </section>
+
+
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-inner container">
+      <p class="footer-brand">CollegeYatra</p>
+      <p class="footer-sub">Patna University · Class of 2026</p>
+      <p class="footer-copy">© 2026 CollegeYatra. Made with love for every moment shared. · <a href="admin.html" target="_blank" class="footer-admin-link">Admin Panel</a></p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
